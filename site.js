@@ -33,3 +33,12 @@ tracks.forEach((track, index) => {
   }
   tracklist.append(article);
 });
+
+const memberDialog = document.getElementById('member-dialog');
+const memberOpen = document.querySelector('.member-open');
+memberOpen.addEventListener('click', () => memberDialog.showModal());
+document.querySelector('.member-close').addEventListener('click', () => memberDialog.close());
+memberDialog.addEventListener('click', event => {
+  const box = memberDialog.getBoundingClientRect();
+  if (event.target === memberDialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) memberDialog.close();
+});
