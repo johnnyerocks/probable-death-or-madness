@@ -9,15 +9,15 @@ Serve this folder with a static web server, for example `python3 -m http.server 
 ## Add the demos
 
 1. Put your final MP3 files in this folder (or an `audio/` subfolder).
-2. Edit `tracks.js`: update each working title, description and `src` path.
-3. Real audio controls appear automatically for tracks with a source. Only one demo plays at a time. Empty sources show an honest “In the works” label.
-4. Update the note below the track list in `index.html` when the demos are published.
+2. Edit `tracks.js`: update each title, description and `src` path.
+3. Real audio controls appear automatically for tracks with a source. Only one demo plays at a time. Empty sources show an honest “Coming soon” label.
+4. Update the title fields when final song names are chosen.
 
-Current track names are arrangement labels, not confirmed release titles. No placeholder audio or invented recordings are included.
+Tracks are labelled Demo I, Demo II and Demo III until final titles are supplied. No placeholder audio or invented recordings are included.
 
 ## Contact and content
 
-The recruitment section uses the existing public music contact, typesofapes@gmail.com. Specific instruments and rehearsal commitments have not been assumed. Edit the text in `index.html` as the lineup takes shape.
+The minimal page contains the logo, demos and a contact link to typesofapes@gmail.com. No biography or recruitment copy is displayed.
 
 ## Future hosting
 

@@ -13,10 +13,11 @@ tracks.forEach((track, index) => {
   title.textContent = track.title;
   const description = document.createElement('p');
   description.textContent = track.description;
-  copy.append(title, description);
+  copy.append(title);
+  if (track.description) copy.append(description);
   const status = document.createElement('span');
   status.className = 'track-status';
-  status.textContent = track.src ? 'Demo recording' : 'In the works';
+  status.textContent = track.src ? 'Demo recording' : 'Coming soon';
   article.append(number, copy, status);
   if (track.src) {
     const audio = document.createElement('audio');
