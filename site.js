@@ -22,6 +22,7 @@ tracks.forEach((track, index) => {
   if (track.src) {
     const audio = document.createElement('audio');
     audio.controls = true;
+    audio.setAttribute('controlsList', 'nodownload');
     audio.preload = 'none';
     audio.src = track.src;
     audio.setAttribute('aria-label', 'Play ' + track.title);
