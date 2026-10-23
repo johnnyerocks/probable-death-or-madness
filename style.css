@@ -5,3 +5,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .member-poster{max-width:430px;margin:24px auto 0;scroll-margin-top:24px}.member-poster img{display:block;width:100%;height:auto}.member-poster figcaption{padding:22px 0 6px;text-align:center}.member-poster h2{font-size:clamp(38px,6vw,56px);text-shadow:2px 2px var(--red)}.member-poster p{font-size:11px;text-transform:uppercase;letter-spacing:3px;margin:12px 0 0}@media(max-width:600px){nav{gap:15px}nav a{font-size:9px;letter-spacing:1px}.member-poster{max-width:340px;margin-top:20px}}
+
+.band-bio{max-width:680px;margin:28px auto 40px;font-size:clamp(15px,1.6vw,18px);line-height:1.75;color:var(--paper)}.band-bio p{margin:0 0 18px}.band-bio p:last-child{margin-bottom:0}@media(max-width:600px){.band-bio{margin:24px 4% 32px}}
