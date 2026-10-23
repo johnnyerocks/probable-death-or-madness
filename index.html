@@ -10,39 +10,42 @@
   <meta property="og:image" content="band-logo-transparent.png">
   <title>Probable Death or Madness</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=band-bio-20261023">
-  <script src="tracks.js?v=ascent-20261023" defer></script>
-  <script src="site.js?v=inline-johnny-20261023" defer></script>
+  <link rel="stylesheet" href="style.css?v=overlays-20261023">
+  <script src="tracks.js?v=overlays-20261023" defer></script>
+  <script src="site.js?v=overlays-20261023" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="topbar">
     <a class="wordmark" href="#top" aria-label="Probable Death or Madness, back to top">PD<span>/</span>OM</a>
-    <nav aria-label="Main navigation"><a href="#demos">Demos</a><a href="#johnny-e">Johnny E</a><a href="mailto:johnnyerocks@outlook.com">Contact <span aria-hidden="true">↗</span></a></nav>
+    <nav aria-label="Main navigation"><a href="mailto:johnnyerocks@outlook.com">Contact <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="main">
     <section class="hero" id="top" aria-labelledby="band-name">
 
       <h1 id="band-name"><img src="band-logo-transparent.png" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high"></h1>
-      <section class="band-bio" aria-label="About the band">
-        <p>Probable Death or Madness is a heavy rock band taking shape. For now, it’s Johnny E, a guitar, and these demos.</p>
-        <p>Black Sabbath, Monster Magnet, Clutch, Type O Negative, Ghost. That should give you some idea. Life, books and films get mixed in there too.</p>
-        <p>Looking for a crew to get this off the ground. Bring your own style and ideas—we don’t need to play everything exactly like the demos.</p>
-      </section>
-    <figure class="member-poster" id="johnny-e">
-      <img src="johnny-e-punk.png" alt="Johnny E with his black Les Paul, in a distressed cream and red print" width="1122" height="1402">
-      <figcaption><h2 id="johnny-name">JOHNNY E</h2><p>Guitar &amp; vocals</p></figcaption>
-    </figure>
-      <div class="hero-bottom"><a class="button" href="#demos">Demos <span aria-hidden="true">↓</span></a></div>
-    </section>
-    <section class="demos paper" id="demos" aria-labelledby="demos-title">
-      <div class="section-heading"><h2 id="demos-title">DEMOS</h2><span class="catalogue" aria-hidden="true">I / II / III / IV / V</span></div>
-      <div class="tracklist" id="tracklist"></div>
-      <noscript><p>Demos coming soon.</p></noscript>
+<div class="overlay-nav" aria-label="Explore the band"><button type="button" data-overlay="about" aria-haspopup="dialog">ABOUT</button><button type="button" data-overlay="members" aria-haspopup="dialog">MEMBERS</button><button type="button" data-overlay="demos" aria-haspopup="dialog">DEMOS</button><button type="button" data-overlay="contact" aria-haspopup="dialog">CONTACT</button></div>
     </section>
 
   </main>
 
+<dialog class="site-overlay " id="about-overlay" aria-labelledby="about-title"><button class="overlay-close" aria-label="Close about">Close ×</button><div class="overlay-content"><h2 id="about-title">ABOUT</h2>      <section class="band-bio" aria-label="About the band">
+        <p>Probable Death or Madness is a heavy rock band taking shape. For now, it’s Johnny E, a guitar, and these demos.</p>
+        <p>Black Sabbath, Monster Magnet, Clutch, Type O Negative, Ghost. That should give you some idea. Life, books and films get mixed in there too.</p>
+        <p>Looking for a crew to get this off the ground. Bring your own style and ideas—we don’t need to play everything exactly like the demos.</p>
+      </section>
+</div></dialog>
+<dialog class="site-overlay " id="members-overlay" aria-labelledby="members-title"><button class="overlay-close" aria-label="Close members">Close ×</button><div class="overlay-content"><h2 id="members-title">MEMBERS</h2>    <figure class="member-poster" id="johnny-e">
+      <img src="johnny-e-punk.png" alt="Johnny E with his black Les Paul, in a distressed cream and red print" width="1122" height="1402">
+      <figcaption><h2 id="johnny-name">JOHNNY E</h2><p>Guitar &amp; vocals</p></figcaption>
+    </figure>
+</div></dialog>
+<dialog class="site-overlay paper" id="demos-overlay" aria-labelledby="demos-title"><button class="overlay-close" aria-label="Close demos">Close ×</button><div class="overlay-content">    <section class="demos paper" id="demos" aria-labelledby="demos-title">
+      <div class="section-heading"><h2 id="demos-title">DEMOS</h2><span class="catalogue" aria-hidden="true">I / II / III / IV / V</span></div>
+      <div class="tracklist" id="tracklist"></div>
+      <noscript><p>Demos coming soon.</p></noscript>
+    </section></div></dialog>
+<dialog class="site-overlay" id="contact-overlay" aria-labelledby="contact-title"><button class="overlay-close" aria-label="Close contact">Close ×</button><div class="overlay-content"><h2 id="contact-title">CONTACT</h2><p class="contact-email"><a href="mailto:johnnyerocks@outlook.com">johnnyerocks@outlook.com ↗</a></p></div></dialog>
   <footer><a href="#top">PROBABLE DEATH OR MADNESS</a><a href="mailto:johnnyerocks@outlook.com">Contact ↗</a></footer>
 </body>
 </html>

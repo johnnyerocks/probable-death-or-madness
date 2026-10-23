@@ -35,3 +35,15 @@ tracks.forEach((track, index) => {
   tracklist.append(article);
 });
 
+
+document.querySelectorAll('[data-overlay]').forEach(button => {
+  button.addEventListener('click', () => document.getElementById(button.dataset.overlay + '-overlay').showModal());
+});
+document.querySelectorAll('.site-overlay').forEach(dialog => {
+  dialog.querySelector('.overlay-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    const box = dialog.getBoundingClientRect();
+    if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close();
+  });
+  dialog.addEventListener('close', () => dialog.querySelectorAll('audio').forEach(audio => audio.pause()));
+});
