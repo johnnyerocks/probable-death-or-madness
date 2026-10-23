@@ -13,3 +13,5 @@
 .contact-email{font-size:clamp(16px,3vw,24px);margin-top:28px;overflow-wrap:anywhere}@media(max-width:600px){.overlay-nav{gap:12px}.overlay-nav button{font-size:15px;letter-spacing:1px;padding:12px 2px}}
 
 .overlay-nav button{transition:transform .2s ease,color .2s ease,text-shadow .2s ease,border-color .2s ease}.overlay-nav button:hover,.overlay-nav button:focus-visible{transform:translateY(-4px);text-shadow:0 0 18px #c6442c88;border-color:#f17c58}.overlay-nav button:active{transform:translateY(0)}@media(prefers-reduced-motion:reduce){.overlay-nav button:hover,.overlay-nav button:focus-visible{transform:none}}
+
+.member-poster img{aspect-ratio:1 / 1;object-fit:cover;object-position:top;height:auto}
