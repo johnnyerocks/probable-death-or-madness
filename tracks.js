@@ -1,6 +1,6 @@
-// Add audio paths when ready, e.g. src: 'audio/demo-1.mp3'.
 window.BAND_TRACKS = [
-  { title: 'Come Inside', description: '', src: 'come-inside.mp3' },
-  { title: 'DM Blues', description: '', src: 'dm-blues.mp3' },
-  { title: 'Demo III', description: '', src: '' }
+  { title: 'Prelude', description: '', src: 'prelude.mp3' },
+  { title: "(Don't) Wanna Die!", description: '', src: 'dont-wanna-die-23-10-26.mp3' },
+  { title: 'Six Demon Bag', description: '', src: 'six-demon-bag.mp3' },
+  { title: 'DM Blues', description: '', src: 'dm-blues.mp3' }
 ];
