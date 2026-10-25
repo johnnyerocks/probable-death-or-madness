@@ -1,4 +1,9 @@
 'use strict';
+const stopAudio = document.getElementById('stop-audio');
+const players = [];
+const formatDuration = seconds => Math.floor(seconds / 60) + ':' + String(Math.floor(seconds % 60)).padStart(2, '0');
+function updateStopButton() { stopAudio.hidden = !players.some(audio => !audio.paused && !audio.ended); }
+stopAudio.addEventListener('click', () => { players.forEach(audio => { audio.pause(); audio.currentTime = 0; }); updateStopButton(); });
 const tracklist = document.getElementById('tracklist');
 const tracks = Array.isArray(window.BAND_TRACKS) ? window.BAND_TRACKS : [];
 tracks.forEach((track, index) => {
@@ -17,17 +22,26 @@ tracks.forEach((track, index) => {
   if (track.description) copy.append(description);
   const status = document.createElement('span');
   status.className = 'track-status';
-  status.textContent = track.src ? 'Demo recording' : 'Coming soon';
+  status.textContent = track.src ? 'Demo recording · ' + formatDuration(track.duration) : 'Coming soon';
   article.append(number, copy, status);
   if (track.src) {
     const audio = document.createElement('audio');
     audio.controls = true;
     audio.setAttribute('controlsList', 'nodownload noplaybackrate');
-    audio.preload = 'none';
+    audio.preload = 'metadata';
     audio.src = track.src;
     audio.setAttribute('aria-label', 'Play ' + track.title);
+    players.push(audio);
+    audio.addEventListener('loadedmetadata', () => { if (Number.isFinite(audio.duration)) status.textContent = 'Demo recording · ' + formatDuration(audio.duration); });
+    audio.addEventListener('pause', updateStopButton);
+    audio.addEventListener('ended', () => {
+      const next = players[players.indexOf(audio) + 1];
+      if (next) { next.currentTime = 0; next.play().catch(() => { updateStopButton(); }); }
+      updateStopButton();
+    });
     audio.addEventListener('play', () => {
       document.querySelectorAll('audio').forEach(other => { if (other !== audio) other.pause(); });
+      updateStopButton();
     });
     audio.addEventListener('error', () => { status.textContent = 'Audio unavailable'; });
     article.append(audio);
@@ -37,13 +51,13 @@ tracks.forEach((track, index) => {
 
 
 document.querySelectorAll('[data-overlay]').forEach(button => {
-  button.addEventListener('click', () => document.getElementById(button.dataset.overlay + '-overlay').showModal());
+  button.addEventListener('click', () => { const dialog = document.getElementById(button.dataset.overlay + '-overlay'); dialog.append(stopAudio); dialog.showModal(); });
 });
 document.querySelectorAll('.site-overlay').forEach(dialog => {
+  dialog.addEventListener('close', () => document.body.append(stopAudio));
   dialog.querySelector('.overlay-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     const box = dialog.getBoundingClientRect();
     if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close();
   });
-  dialog.addEventListener('close', () => dialog.querySelectorAll('audio').forEach(audio => audio.pause()));
 });

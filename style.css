@@ -15,3 +15,5 @@
 .overlay-nav button{transition:transform .2s ease,color .2s ease,text-shadow .2s ease,border-color .2s ease}.overlay-nav button:hover,.overlay-nav button:focus-visible{transform:translateY(-4px);text-shadow:0 0 18px #c6442c88;border-color:#f17c58}.overlay-nav button:active{transform:translateY(0)}@media(prefers-reduced-motion:reduce){.overlay-nav button:hover,.overlay-nav button:focus-visible{transform:none}}
 
 .member-poster img{aspect-ratio:1 / 1;object-fit:cover;object-position:top;height:auto}
+
+#stop-audio{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--ink);color:var(--paper);border:1px solid var(--red);border-radius:50%;width:46px;height:46px;display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 18px #0008}#stop-audio[hidden]{display:none}#stop-audio:hover{color:#f17c58}
