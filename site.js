@@ -93,20 +93,25 @@ tracks.forEach((track, index) => {
       updateStopButton();
     });
     audio.addEventListener('error', () => { status.textContent = 'Audio unavailable'; });
-    article.append(audio);
+    const audioRow = document.createElement('div');
+    audioRow.className = 'track-audio-row';
+    audioRow.append(audio);
+    article.append(audioRow);
     const extension = track.src.split('?')[0].split('.').pop().toLowerCase();
     const downloadName = 'PDOM - ' + track.title.replace(/[\/:*?"<>|]/g, '-') + '.' + extension;
     const link = document.createElement('a');
     link.className = 'track-download';
     link.href = track.src;
     link.download = downloadName;
-    link.textContent = 'Download ' + extension.toUpperCase() + ' ↓';
+    link.innerHTML = '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg>';
+    link.title = 'Download ' + track.title;
     link.setAttribute('aria-label', 'Download ' + track.title + ' (' + extension.toUpperCase() + ')');
     link.hidden = !downloadsUnlocked;
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'track-download track-download-locked';
-    button.textContent = 'Download ' + extension.toUpperCase() + ' · password required';
+    button.innerHTML = '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg>';
+    button.title = 'Download ' + track.title + ' (password required)';
     button.setAttribute('aria-label', 'Unlock download for ' + track.title);
     button.hidden = downloadsUnlocked;
     button.addEventListener('click', () => {
@@ -118,7 +123,7 @@ tracks.forEach((track, index) => {
       passwordInput.focus();
     });
     downloadControls.push({button, link});
-    article.append(button, link);
+    audioRow.append(button, link);
   }
   tracklist.append(article);
 });
