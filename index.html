@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://johnnyerocks.com/pdom-black-and-white.jpg">
   <title>Probable Death or Madness</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=demos-button">
+  <link rel="stylesheet" href="style.css?v=smoke-menu">
   <script src="tracks.js?v=come-inside-eb-221126" defer></script>
   <script src="site.js?v=rough-ink" defer></script>
 </head>
@@ -19,6 +19,7 @@
   <header class="masthead">
     <a class="masthead-mark" href="#top" aria-label="PDOM home">PDOM</a>
     <nav class="overlay-nav" aria-label="Explore the band">
+      <button type="button" data-overlay="demos" aria-haspopup="dialog" aria-controls="demos-overlay"><span>Demos</span></button>
       <button type="button" data-overlay="about" aria-haspopup="dialog"><span>About</span></button>
       <button type="button" data-overlay="members" aria-haspopup="dialog"><span>Members</span></button>
       <button type="button" data-overlay="contact" aria-haspopup="dialog"><span>Contact</span></button>
@@ -27,25 +28,20 @@
 
   <main id="main" class="landing">
     <section class="hero" id="top" aria-labelledby="band-name">
-      <div class="hero-composition">
-        <div class="ticket-wrap">
-          <div class="gig-ticket">
-            <div class="admission-stub" aria-hidden="true">
-              <span class="admission-label">General admission</span>
-              <span class="admission-mark">PDOM</span>
-            </div>
-            <div class="ticket-print">
-              <h1 id="band-name">
-                <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
-              </h1>
-              <p class="ticket-location">Helsinki, Finland</p>
-            </div>
-            <div class="ticket-end" aria-hidden="true"></div>
+      <div class="ticket-wrap">
+        <div class="gig-ticket">
+          <div class="admission-stub" aria-hidden="true">
+            <span class="admission-label">General admission</span>
+            <span class="admission-mark">PDOM</span>
           </div>
+          <div class="ticket-print">
+            <h1 id="band-name">
+              <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
+            </h1>
+            <p class="ticket-location">Helsinki, Finland</p>
+          </div>
+          <div class="ticket-end" aria-hidden="true"></div>
         </div>
-        <button class="listen-button" type="button" data-overlay="demos" aria-haspopup="dialog" aria-controls="demos-overlay">
-          Hear the demos <span class="listen-icon" aria-hidden="true"></span>
-        </button>
       </div>
     </section>
   </main>
