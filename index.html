@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#140f0f">
+  <meta name="theme-color" content="#0b0b0b">
   <meta name="description" content="Probable Death or Madness. Listen to the demos.">
   <meta property="og:title" content="Probable Death or Madness">
   <meta property="og:description" content="Listen to the Probable Death or Madness demos.">
-  <meta property="og:image" content="https://johnnyerocks.com/pdom-stage-room.jpg">
+  <meta property="og:image" content="https://johnnyerocks.com/pdom-black-and-white.jpg">
   <title>Probable Death or Madness</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=stage-20261122">
+  <link rel="stylesheet" href="style.css?v=white-ink">
   <script src="tracks.js?v=mr-busy-man" defer></script>
   <script src="site.js?v=stage-20261122" defer></script>
 </head>
@@ -26,20 +26,15 @@
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" class="record-layout">
     <section class="hero" id="top" aria-labelledby="band-name">
-      <img class="hero-image" src="pdom-stage-room.jpg" alt="" width="1672" height="941" fetchpriority="high">
-      <div class="hero-content page-width">
-        <h1 id="band-name" aria-label="Probable Death or Madness">
-          <span aria-hidden="true">Probable</span>
-          <span aria-hidden="true">Death <em>or</em></span>
-          <span aria-hidden="true">Madness</span>
-        </h1>
-        <a class="listen-button" href="#demos">Hear the demos <span aria-hidden="true">↓</span></a>
-      </div>
+      <h1 id="band-name">
+        <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
+      </h1>
+      <a class="mobile-listen" href="#demos">Hear the demos <span aria-hidden="true">↓</span></a>
     </section>
     <section class="demos" id="demos" aria-labelledby="demos-title">
-      <div class="demos-layout page-width">
+      <div class="demos-layout">
         <h2 id="demos-title">Demos</h2>
         <div class="demos-content">
           <div class="tracklist" id="tracklist"></div>
@@ -69,7 +64,6 @@
       </figure>
     </div>
   </dialog>
-
 
   <dialog class="site-overlay" id="contact-overlay" aria-labelledby="contact-title">
     <button class="overlay-close" aria-label="Close contact">Close ×</button>
