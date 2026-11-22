@@ -10,37 +10,27 @@
   <meta property="og:image" content="https://johnnyerocks.com/pdom-black-and-white.jpg">
   <title>Probable Death or Madness</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=white-ink-grain">
+  <link rel="stylesheet" href="style.css?v=rough-ink">
   <script src="tracks.js?v=mr-busy-man" defer></script>
-  <script src="site.js?v=stage-20261122" defer></script>
+  <script src="site.js?v=rough-ink" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead">
     <a class="masthead-mark" href="#top" aria-label="PDOM home">PDOM</a>
     <nav class="overlay-nav" aria-label="Explore the band">
-      <a href="#demos">Demos</a>
       <button type="button" data-overlay="about" aria-haspopup="dialog"><span>About</span></button>
       <button type="button" data-overlay="members" aria-haspopup="dialog"><span>Members</span></button>
       <button type="button" data-overlay="contact" aria-haspopup="dialog"><span>Contact</span></button>
     </nav>
   </header>
 
-  <main id="main" class="record-layout">
+  <main id="main" class="landing">
     <section class="hero" id="top" aria-labelledby="band-name">
       <h1 id="band-name">
         <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
       </h1>
-      <a class="mobile-listen" href="#demos">Hear the demos <span aria-hidden="true">↓</span></a>
-    </section>
-    <section class="demos" id="demos" aria-labelledby="demos-title">
-      <div class="demos-layout">
-        <h2 id="demos-title">Demos</h2>
-        <div class="demos-content">
-          <div class="tracklist" id="tracklist"></div>
-          <noscript><p>Demos coming soon.</p></noscript>
-        </div>
-      </div>
+      <button class="listen-button" type="button" data-overlay="demos" aria-haspopup="dialog">Hear the demos <span aria-hidden="true">↗</span></button>
     </section>
   </main>
 
@@ -65,6 +55,17 @@
     </div>
   </dialog>
 
+  <dialog class="site-overlay" id="demos-overlay" aria-labelledby="demos-title">
+    <button class="overlay-close" aria-label="Close demos">Close ×</button>
+    <div class="overlay-content demos-layout">
+      <h2 id="demos-title">Demos</h2>
+      <div class="demos-content">
+        <div class="tracklist" id="tracklist"></div>
+        <noscript><p>Demos coming soon.</p></noscript>
+      </div>
+    </div>
+  </dialog>
+
   <dialog class="site-overlay" id="contact-overlay" aria-labelledby="contact-title">
     <button class="overlay-close" aria-label="Close contact">Close ×</button>
     <div class="overlay-content">
@@ -73,10 +74,6 @@
     </div>
   </dialog>
 
-  <footer class="site-footer page-width">
-    <a href="#top" aria-label="PDOM, back to top" class="masthead-mark">PDOM</a>
-    <a class="footer-contact" href="mailto:johnnyerocks@outlook.com">Contact <span aria-hidden="true">↗</span></a>
-  </footer>
 
   <button type="button" id="stop-audio" aria-label="Stop audio" title="Stop audio" hidden>
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">

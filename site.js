@@ -28,6 +28,12 @@ function closeDownloadForm() {
 }
 downloadForm.querySelector('.download-cancel').addEventListener('click', closeDownloadForm);
 downloadForm.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeDownloadForm(); } });
+document.getElementById('demos-overlay').addEventListener('close', () => {
+  downloadForm.hidden = true;
+  passwordInput.value = '';
+  feedback.textContent = '';
+  requestedDownload = null;
+});
 downloadForm.addEventListener('submit', async event => {
   event.preventDefault();
   const submit = downloadForm.querySelector('[type="submit"]');
