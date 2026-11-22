@@ -36,11 +36,23 @@ button { cursor: pointer; }
   border-bottom: 1px solid #444;
 }
 .masthead-mark {
+  position: relative;
+  isolation: isolate;
   color: var(--paper);
   font: 900 31px/.9 var(--display);
   letter-spacing: -.015em;
   text-decoration: none;
   transform: skewX(-7deg);
+}
+.masthead-snakes {
+  position: absolute;
+  z-index: -1;
+  top: .16em;
+  left: .1em;
+  width: 170px;
+  height: 115px;
+  pointer-events: none;
+  transform: skewX(7deg);
 }
 .overlay-nav { display: flex; align-items: center; gap: clamp(14px, 3.6vw, 52px); }
 .overlay-nav button {
