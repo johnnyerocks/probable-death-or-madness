@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://johnnyerocks.com/pdom-black-and-white.jpg">
   <title>Probable Death or Madness</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=demo-strip">
+  <link rel="stylesheet" href="style.css?v=admission-ticket">
   <script src="tracks.js?v=mr-busy-man" defer></script>
   <script src="site.js?v=rough-ink" defer></script>
 </head>
@@ -27,19 +27,25 @@
 
   <main id="main" class="landing">
     <section class="hero" id="top" aria-labelledby="band-name">
-      <div class="handbill">
-        <div class="handbill-stock" aria-hidden="true"></div>
-        <div class="handbill-art">
-          <h1 id="band-name">
-            <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
-          </h1>
+      <div class="hero-composition">
+        <div class="ticket-wrap">
+          <div class="gig-ticket">
+            <div class="admission-stub" aria-hidden="true">
+              <span class="admission-label">General admission</span>
+              <span class="admission-mark">PDOM</span>
+            </div>
+            <div class="ticket-print">
+              <h1 id="band-name">
+                <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
+              </h1>
+              <p class="ticket-location">Helsinki, Finland</p>
+            </div>
+            <div class="ticket-end" aria-hidden="true"></div>
+          </div>
         </div>
-        <div class="handbill-footer">
-          <p class="band-location">Helsinki, Finland</p>
-          <button class="listen-button" type="button" data-overlay="demos" aria-haspopup="dialog" aria-controls="demos-overlay">
-            Hear the demos <span class="play-mark" aria-hidden="true"></span>
-          </button>
-        </div>
+        <button class="listen-button" type="button" data-overlay="demos" aria-haspopup="dialog" aria-controls="demos-overlay">
+          Hear the demos <span aria-hidden="true">↗</span>
+        </button>
       </div>
     </section>
   </main>

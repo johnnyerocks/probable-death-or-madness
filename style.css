@@ -1,9 +1,9 @@
 :root {
   color-scheme: dark;
-  --black: #151412;
-  --paper: #e5dfd0;
-  --ink: #171512;
-  --dark-rule: #b5ac9c;
+  --black: #151515;
+  --paper: #e5e5e5;
+  --ink: #171717;
+  --dark-rule: #ababab;
   --font: Arial, sans-serif;
   --display: Impact, 'Arial Narrow', sans-serif;
   --label: 'Arial Narrow', 'Liberation Sans Narrow', Arial, sans-serif;
@@ -31,8 +31,8 @@ button { cursor: pointer; }
   min-height: 64px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding-inline: var(--edge);
-  background: #1b1916;
-  border-bottom: 1px solid #49443a;
+  background: #191919;
+  border-bottom: 1px solid #444;
 }
 .masthead-mark {
   color: var(--paper);
@@ -55,9 +55,10 @@ button { cursor: pointer; }
   position: relative;
   isolation: isolate;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
   min-height: calc(100svh - 64px);
-  padding: clamp(23px, 4.5vh, 60px) var(--edge) max(40px, 4.5vh);
+  padding: clamp(34px, 6vh, 76px) var(--edge);
   overflow: hidden;
 }
 .hero::before {
@@ -65,117 +66,173 @@ button { cursor: pointer; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url('pdom-poster-grain.jpg') center / cover;
-  filter: grayscale(1) contrast(1.08) brightness(.79);
-  opacity: .74;
+  background:
+    radial-gradient(ellipse at 48% 43%, transparent 28%, #05050580 100%),
+    url('pdom-charcoal-grain.jpg') center / cover;
+  filter: grayscale(1);
 }
-.handbill {
-  --paper-inset: clamp(20px, 4.6vw, 72px);
-  --paper-bottom: clamp(14px, 2.5vh, 26px);
+.hero-composition {
+  width: min(100%, 1090px, max(580px, calc((100svh - 205px) * 2.06)));
+  display: grid;
+  justify-items: end;
+  gap: clamp(16px, 4.5vh, 37px);
+}
+.ticket-wrap {
+  width: 100%;
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 3px 2px #0b0b0b99) drop-shadow(0 17px 25px #0505058c);
+}
+.gig-ticket {
+  --stock: #dcdcdc;
+  --print: #191919;
+  --track: #555;
+  --border-strip: clamp(6px, 1.15vw, 15px);
+  --cut: 6.5%;
   position: relative;
   isolation: isolate;
-  width: min(100%, 1130px, max(510px, calc((100svh - 275px) * 1.5 + 2 * var(--paper-inset))));
-  padding: clamp(16px, 4.4vh, 38px) var(--paper-inset) var(--paper-bottom);
-  color: var(--ink);
+  display: grid;
+  grid-template-columns: minmax(0, 14%) minmax(0, 1fr) var(--cut);
+  width: 100%;
+  aspect-ratio: 2.15;
+  padding: var(--border-strip) var(--border-strip) var(--border-strip) calc(var(--border-strip) + 2px);
+  background: #2a2a2a;
+  color: var(--print);
+  clip-path: polygon(
+    .1% .7%, 12% .15%, 22% .42%, 42% 0, 73% .25%, 93% .1%, 99.1% .65%,
+    98.65% 2.6%, 98.9% 4%, 98.35% 5.8%, 98.82% 7.2%, 98.53% 10.8%,
+    99.08% 13.4%, 98.82% 16%, 99.64% 19.6%, 99.46% 21.9%, 100% 25.1%,
+    99.73% 28.25%, 99.85% 30.3%, 99.17% 32.7%, 99.36% 34.5%, 98.67% 36.5%,
+    98.22% 39.2%, 97.79% 40.4%, 97.81% 43.05%, 97.36% 45%, 96.94% 47.6%,
+    97.15% 49.2%, 96.39% 52.55%, 95.95% 53.1%, 95.78% 55.4%, 95.03% 58.7%,
+    95.32% 60.5%, 94.75% 64%, 94.96% 65.1%, 94.3% 67.9%, 94.68% 69.35%,
+    94.45% 73%, 95.01% 75.4%, 94.68% 78.05%, 95.02% 81.75%, 94.55% 84.2%,
+    94.93% 86.05%, 94.65% 90.5%, 95.04% 93.1%, 94.83% 96.45%, 95.2% 99.3%,
+    83% 99.55%, 55% 99.4%, 43% 100%, 17% 99.62%, .3% 99.9%, .49% 88%,
+    .18% 73%, .37% 55%, 0 34%, .33% 20%
+  );
 }
-.handbill-stock {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-color: var(--paper);
-  clip-path: polygon(.2% .6%, 12% .1%, 29% .45%, 42% .1%, 68% .4%, 89% .05%, 99.7% .5%, 99.6% 43%, 100% 57%, 99.55% 77%, 99.8% 99.45%, 93% 99.2%, 86% 99.85%, 79% 99.15%, 68% 99.55%, 61% 99.2%, 51% 99.75%, 43% 99.3%, 34% 99.85%, 22% 99.5%, 12% 100%, .3% 99.5%, .5% 84%, .1% 68%, .45% 42%, 0 19%);
-}
-.handbill-stock::before, .site-overlay::before {
+.gig-ticket::before, .gig-ticket::after {
   content: '';
   position: absolute;
-  z-index: 0;
   inset: 0;
+  z-index: 2;
   pointer-events: none;
-  background: url('pdom-poster-grain.jpg') center / 104% 106% no-repeat;
+}
+.gig-ticket::before {
+  background: url('pdom-poster-grain.jpg') 50% 65% / cover;
+  filter: grayscale(1) invert(1) contrast(1.2);
   mix-blend-mode: multiply;
-  filter: grayscale(1) invert(1) contrast(1.23);
-  opacity: .78;
+  opacity: .37;
 }
-.site-overlay::before { z-index: -1; }
-.handbill-stock::after {
+.gig-ticket::after {
+  background:
+      linear-gradient(90deg, transparent 56.6%, #fff4 56.8%, #1d1d1d19 57%, transparent 57.2%),
+      linear-gradient(2.2deg, transparent 41.45%, #1010100d 41.6%, #fff2 41.9%, transparent 42.15%);
+}
+.admission-stub, .ticket-print, .ticket-end {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  background: var(--stock);
+}
+.admission-stub {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .56fr);
+  place-items: center;
+  padding-inline: 12%;
+  border-right: 1px dashed var(--track);
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+.admission-stub::before, .admission-stub::after {
   content: '';
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #3c3429 22%, transparent 25%);
-  background-size: 4px 4px;
-  mask-image: radial-gradient(ellipse at 5% 9%, black, transparent 31%), radial-gradient(ellipse at 100% 82%, black, transparent 29%);
-  opacity: .28;
+  inset-inline: 0;
+  height: clamp(6px, 1.1vw, 12px);
+  background: #282828;
 }
-.handbill-art { padding-block: 0 clamp(12px, 2.3vh, 24px); }
-.hero h1 { width: 100%; margin: 0; mix-blend-mode: multiply; transform: rotate(-1.7deg); }
-.hero img {
+.admission-stub::before { top: 5%; }
+.admission-stub::after { bottom: 5%; }
+.admission-label, .admission-mark {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.admission-label {
+  font-size: clamp(11px, 2.35vw, 31px);
+  letter-spacing: .11em;
+}
+.admission-mark {
+  min-height: 63%;
+  padding: 14% 0;
+  border-inline: 1px solid #777;
+  color: #555;
+  font-size: clamp(9px, 1.2vw, 16px);
+  letter-spacing: .26em;
+  text-align: center;
+}
+.ticket-print {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  place-items: center;
+  row-gap: clamp(4px, .7vw, 14px);
+  padding: clamp(9px, 1.3vw, 23px) clamp(6px, 2vw, 33px) clamp(9px, 1.45vw, 22px);
+}
+.ticket-print h1 {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  mix-blend-mode: multiply;
+}
+.ticket-print img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   filter: grayscale(1) invert(1) contrast(1.33);
 }
-.handbill-footer {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 12px;
-  border-top: 3px solid var(--ink);
-}
-.band-location {
-  display: flex;
-  align-items: center;
+.ticket-location {
   margin: 0;
-  font: 700 clamp(13px, 1.65vw, 22px)/1 var(--label);
-  letter-spacing: .115em;
+  font: 500 clamp(9px, 1.55vw, 22px)/1 var(--mono);
+  letter-spacing: .17em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+.ticket-end {
+  background:
+    repeating-linear-gradient(0deg, #242424 0 1px, transparent 1px 4px, #242424 4px 7px, transparent 7px 9px,
+      #242424 9px 10px, transparent 10px 13px, #242424 13px 14px, transparent 14px 18px) 0 6% / 100% 34% no-repeat,
+    linear-gradient(90deg, #b4b4b4 0 1px, transparent 1px),
+    var(--stock);
 }
 .listen-button {
-  --tab-offset: calc(var(--paper-bottom) + 17px);
-  --tab-tilt: -2.8deg;
-  position: relative;
-  isolation: isolate;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(12px, 3vw, 54px);
-  min-height: 51px;
-  margin-right: calc(0px - var(--paper-inset) - 7px);
-  padding: 9px clamp(16px, 2.8vw, 36px) 11px;
+  gap: clamp(9px, 2vw, 26px);
+  min-height: 44px;
+  margin-right: clamp(12px, 5.5vw, 66px);
+  padding: 0 1px;
   border: 0;
-  color: var(--paper);
+  border-bottom: 1px solid #9d9d9d;
   background: transparent;
-  font: 800 clamp(20px, 2.9vw, 38px)/1 var(--display);
-  letter-spacing: .015em;
+  color: #ececec;
+  font: 600 clamp(14px, 1.5vw, 20px)/1 var(--label);
+  letter-spacing: .13em;
   text-transform: uppercase;
-  transform: translateY(var(--tab-offset)) rotate(var(--tab-tilt));
 }
-.listen-button::before, .listen-button::after {
+.listen-button span { font: .9em/1 var(--mono); }
+.listen-button:hover { color: #fff; border-bottom-color: currentColor; }
+
+.site-overlay::before {
   content: '';
   position: absolute;
+  z-index: -1;
   inset: 0;
   pointer-events: none;
-  clip-path: polygon(0 5%, 29% 2%, 59% 3%, 99.3% 0, 98.7% 23%, 100% 45%, 98.8% 68%, 99.5% 96%, 68% 98%, 43% 97%, .4% 100%);
-}
-.listen-button::before {
-  z-index: -2;
-  background: #bdb5a5;
-  transform: translate(-3px, 5px) rotate(.9deg);
-}
-.listen-button::after {
-  z-index: -1;
-  background: var(--ink);
-}
-.listen-button:focus-visible { outline-color: var(--paper); box-shadow: 0 0 0 4px var(--ink); }
-.listen-button:hover::after { background: #302a23; }
-.play-mark {
-  display: inline-block;
-  flex: none;
-  width: .64em;
-  height: .73em;
-  background: currentColor;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: url('pdom-poster-grain.jpg') center / cover;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) invert(1) contrast(1.23);
+  opacity: .45;
 }
 
 .overlay-content h2 {
@@ -273,26 +330,16 @@ body:has(.site-overlay[open]) { overflow: hidden; }
 }
 #stop-audio:hover { color: var(--ink); background: var(--paper); }
 
-.site-overlay::before { opacity: .45; background-size: cover; }
 .contact-email a:hover { text-decoration-thickness: 2px; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1 { animation: settle-ink .52s cubic-bezier(.22,.73,.28,1) both; }
-  .listen-button { transition: transform .19s ease-out; }
-  .listen-button:hover {
-    transform: translate(2px, calc(var(--tab-offset) + 3px)) rotate(-1.8deg);
-  }
-  .play-mark { transition: transform .16s ease; }
-  .listen-button:hover .play-mark { transform: translateX(3px); }
+  .listen-button span { transition: transform .16s ease; }
+  .listen-button:hover span { transform: translate(2px, -2px); }
   #demos-overlay[open] {
     animation: pull-out-demos .48s cubic-bezier(.22,.74,.26,1);
   }
   #demos-overlay[open]::backdrop {
     animation: dim-behind-demos .48s ease-out;
-  }
-  @keyframes settle-ink {
-    from { opacity: .6; transform: translate(-5px, 2px) rotate(-2.35deg); }
-    to { opacity: 1; transform: rotate(-1.7deg); }
   }
   @keyframes pull-out-demos {
     from {
@@ -314,8 +361,8 @@ body:has(.site-overlay[open]) { overflow: hidden; }
 }
 
 @media (max-width: 680px) {
-  .hero { padding-block: 24px 42px; }
-  .handbill { width: 100%; }
+  .hero { padding-block: 36px 54px; }
+  .hero-composition { gap: 17px; }
 }
 
 @media (max-width: 480px) {
@@ -323,17 +370,15 @@ body:has(.site-overlay[open]) { overflow: hidden; }
   .masthead-mark { font-size: 26px; }
   .overlay-nav { gap: clamp(9px, 3.1vw, 15px); }
   .overlay-nav button { font-size: 16px; letter-spacing: .055em; }
-  .hero {
-    min-height: calc(100svh - 58px);
-    padding-bottom: max(42px, calc(100svh - 696px));
+  .hero { min-height: calc(100svh - 58px); }
+  .gig-ticket {
+    --cut: 7%;
+    grid-template-columns: minmax(0, 15%) minmax(0, 1fr) var(--cut);
+    aspect-ratio: auto;
+    height: clamp(158px, 51vw, 235px);
   }
-  .handbill { --paper-inset: 13px; --paper-bottom: 16px; padding-top: 26px; }
-  .handbill-footer { border-top-width: 2px; }
-  .listen-button {
-    --tab-offset: calc(var(--paper-bottom) + 13px);
-    min-height: 47px;
-    padding-inline: 14px;
-  }
+  .admission-stub { padding-inline: 8%; }
+  .ticket-location { letter-spacing: .12em; }
   .track { grid-template-columns: 24px minmax(0, 1fr) auto; }
   .track-audio-row { grid-column: 1 / -1; }
   .site-overlay, #members-overlay, #demos-overlay { width: calc(100% - 24px); }
@@ -342,8 +387,3 @@ body:has(.site-overlay[open]) { overflow: hidden; }
   .member-poster p { margin: 0; }
 }
 
-@media (max-width: 360px) {
-  .handbill-footer { flex-direction: column; }
-  .band-location { padding-top: 11px; }
-  .listen-button { align-self: flex-end; }
-}
