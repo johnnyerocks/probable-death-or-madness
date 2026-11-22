@@ -206,22 +206,32 @@ button { cursor: pointer; }
     var(--stock);
 }
 .listen-button {
+  --demo-inset: clamp(12px, 5.5vw, 66px);
   display: inline-flex;
   align-items: center;
-  gap: clamp(9px, 2vw, 26px);
-  min-height: 44px;
-  margin-right: clamp(12px, 5.5vw, 66px);
-  padding: 0 1px;
-  border: 0;
-  border-bottom: 1px solid #9d9d9d;
-  background: transparent;
-  color: #ececec;
-  font: 600 clamp(14px, 1.5vw, 20px)/1 var(--label);
-  letter-spacing: .13em;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(calc(100% - var(--demo-inset)), 330px);
+  min-height: clamp(52px, 7.6vh, 65px);
+  margin-right: var(--demo-inset);
+  padding: 8px clamp(15px, 1.8vw, 28px);
+  border: 1px solid var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 4px 5px 0 #08080870;
+  font: 800 clamp(21px, 2.2vw, 33px)/1 var(--display);
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
-.listen-button span { font: .9em/1 var(--mono); }
-.listen-button:hover { color: #fff; border-bottom-color: currentColor; }
+.listen-button:hover { background: var(--ink); color: var(--paper); }
+.listen-button:focus-visible { outline-color: var(--paper); }
+.listen-icon {
+  flex: none;
+  width: .62em;
+  height: .74em;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
 
 .site-overlay::before {
   content: '';
@@ -333,8 +343,8 @@ body:has(.site-overlay[open]) { overflow: hidden; }
 .contact-email a:hover { text-decoration-thickness: 2px; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .listen-button span { transition: transform .16s ease; }
-  .listen-button:hover span { transform: translate(2px, -2px); }
+  .listen-icon { transition: transform .16s ease; }
+  .listen-button:hover .listen-icon { transform: translateX(3px); }
   #demos-overlay[open] {
     animation: pull-out-demos .48s cubic-bezier(.22,.74,.26,1);
   }
