@@ -28,7 +28,6 @@ function closeDownloadForm() {
 }
 downloadForm.querySelector('.download-cancel').addEventListener('click', closeDownloadForm);
 downloadForm.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeDownloadForm(); } });
-document.getElementById('demos-overlay').addEventListener('close', () => { downloadForm.hidden = true; passwordInput.value = ''; requestedDownload = null; });
 downloadForm.addEventListener('submit', async event => {
   event.preventDefault();
   const submit = downloadForm.querySelector('[type="submit"]');
@@ -71,7 +70,7 @@ tracks.forEach((track, index) => {
   if (track.description) copy.append(description);
   const status = document.createElement('span');
   status.className = 'track-status';
-  status.textContent = track.src ? 'Demo recording · ' + formatDuration(track.duration) : 'Coming soon';
+  status.textContent = track.src ? formatDuration(track.duration) : 'Coming soon';
   article.append(number, copy, status);
   if (track.src) {
     const audio = document.createElement('audio');
@@ -81,7 +80,7 @@ tracks.forEach((track, index) => {
     audio.src = track.src;
     audio.setAttribute('aria-label', 'Play ' + track.title);
     players.push(audio);
-    audio.addEventListener('loadedmetadata', () => { if (Number.isFinite(audio.duration)) status.textContent = 'Demo recording · ' + formatDuration(audio.duration); });
+    audio.addEventListener('loadedmetadata', () => { if (Number.isFinite(audio.duration)) status.textContent = formatDuration(audio.duration); });
     audio.addEventListener('pause', updateStopButton);
     audio.addEventListener('ended', () => {
       const next = players[players.indexOf(audio) + 1];
