@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://johnnyerocks.com/pdom-black-and-white.jpg">
   <title>Probable Death or Madness</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=rough-ink">
+  <link rel="stylesheet" href="style.css?v=handbill">
   <script src="tracks.js?v=mr-busy-man" defer></script>
   <script src="site.js?v=rough-ink" defer></script>
 </head>
@@ -27,10 +27,19 @@
 
   <main id="main" class="landing">
     <section class="hero" id="top" aria-labelledby="band-name">
-      <h1 id="band-name">
-        <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
-      </h1>
-      <button class="listen-button" type="button" data-overlay="demos" aria-haspopup="dialog">Hear the demos <span aria-hidden="true">↗</span></button>
+      <div class="handbill">
+        <div class="handbill-art">
+          <h1 id="band-name">
+            <img src="pdom-black-and-white.jpg" alt="Probable Death or Madness" width="1536" height="1024" fetchpriority="high">
+          </h1>
+        </div>
+        <div class="handbill-footer">
+          <p class="band-location">Helsinki, Finland</p>
+          <button class="listen-button" type="button" data-overlay="demos" aria-haspopup="dialog">
+            Hear the demos <span class="play-mark" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -49,7 +58,7 @@
     <div class="overlay-content">
       <h2 id="members-title">Members</h2>
       <figure class="member-poster" id="johnny-e">
-        <img src="johnny-e-tv-yellow-retouched.jpg" alt="Johnny E holding a worn TV-yellow Les Paul in a warmly lit studio" width="1086" height="1448" loading="lazy">
+        <img src="johnny-e-tv-yellow-retouched.jpg" alt="Black-and-white portrait of Johnny E holding a worn Les Paul Special" width="1086" height="1448" loading="lazy">
         <figcaption><h3 id="johnny-name">Johnny E</h3><p>Guitar</p></figcaption>
       </figure>
     </div>
