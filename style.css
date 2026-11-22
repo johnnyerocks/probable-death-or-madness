@@ -47,10 +47,10 @@ button { cursor: pointer; }
 .masthead-snakes {
   position: absolute;
   z-index: -1;
-  top: .16em;
+  top: -.1em;
   left: .1em;
-  width: 170px;
-  height: 115px;
+  width: min(260px, 36vw);
+  height: 42px;
   pointer-events: none;
   transform: skewX(7deg);
 }
@@ -144,7 +144,8 @@ button { cursor: pointer; }
   background: #2a2a2a;
   color: var(--print);
   clip-path: polygon(
-    .1% .7%, 12% .15%, 22% .42%, 42% 0, 73% .25%, 93% .1%, 99.1% .65%,
+    .1% .85%, 6% .22%, 12% .15%, 17.5% .99%, 22% .42%, 34% .72%, 38% .20%, 42% 0,
+    55% .62%, 65% .14%, 73% .74%, 83% .28%, 93% .1%, 96% .64%, 99.1% .65%,
     98.65% 2.6%, 98.9% 4%, 98.35% 5.8%, 98.82% 7.2%, 98.53% 10.8%,
     99.08% 13.4%, 98.82% 16%, 99.64% 19.6%, 99.46% 21.9%, 100% 25.1%,
     99.73% 28.25%, 99.85% 30.3%, 99.17% 32.7%, 99.36% 34.5%, 98.67% 36.5%,
@@ -153,7 +154,8 @@ button { cursor: pointer; }
     95.32% 60.5%, 94.75% 64%, 94.96% 65.1%, 94.3% 67.9%, 94.68% 69.35%,
     94.45% 73%, 95.01% 75.4%, 94.68% 78.05%, 95.02% 81.75%, 94.55% 84.2%,
     94.93% 86.05%, 94.65% 90.5%, 95.04% 93.1%, 94.83% 96.45%, 95.2% 99.3%,
-    83% 99.55%, 55% 99.4%, 43% 100%, 17% 99.62%, .3% 99.9%, .49% 88%,
+    89% 99.7%, 83% 98.85%, 72% 99.55%, 67% 99.18%, 60% 99.75%, 55% 99.4%,
+    43% 100%, 33% 98.93%, 26% 99.7%, 17% 99.33%, 9% 99.8%, .3% 99.9%, .49% 88%,
     .18% 73%, .37% 55%, 0 34%, .33% 20%
   );
 }
@@ -171,9 +173,9 @@ button { cursor: pointer; }
   opacity: .37;
 }
 .gig-ticket::after {
-  background:
-      linear-gradient(90deg, transparent 56.6%, #fff4 56.8%, #1d1d1d19 57%, transparent 57.2%),
-      linear-gradient(2.2deg, transparent 41.45%, #1010100d 41.6%, #fff2 41.9%, transparent 42.15%);
+  background: url('pdom-ticket-wrinkles.webp') center / 100% 100% no-repeat;
+  mix-blend-mode: multiply;
+  opacity: .64;
 }
 .ticket-beetles { display: none; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {

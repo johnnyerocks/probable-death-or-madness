@@ -6,8 +6,8 @@
 
   const motion = matchMedia('(prefers-reduced-motion: no-preference)');
   const snakes = [
-    { delay: 0, startX: 39, startY: 9, dx: .95, dy: .30, reach: 124, length: 63, color: '#d7d4ca' },
-    { delay: 320, startX: 22, startY: 12, dx: .48, dy: .87, reach: 105, length: 58, color: '#b2b0a8' },
+    { delay: 0, startX: 42, startY: 15, dx: 1, dy: -.026, reach: 199, length: 78, color: '#d7d4ca' },
+    { delay: 320, startX: 28, startY: 25, dx: 1, dy: .021, reach: 166, length: 67, color: '#b2b0a8' },
   ];
   let request = null;
   let started = null;
