@@ -133,12 +133,35 @@ tracks.forEach((track, index) => {
   tracklist.append(article);
 });
 
+const ticketTrigger = document.querySelector('.ticket-trigger');
+const ticketTray = document.querySelector('.ticket-tray');
+const ticketScene = document.querySelector('.ticket-scene');
+
+function setTicketMenu(expanded) {
+  ticketTrigger.setAttribute('aria-expanded', String(expanded));
+  ticketTray.inert = !expanded;
+}
+
+ticketTrigger.addEventListener('click', () => setTicketMenu(ticketTray.inert));
+ticketScene.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || ticketTray.inert) return;
+  event.preventDefault();
+  ticketTrigger.focus({ preventScroll: true });
+  setTicketMenu(false);
+});
 
 document.querySelectorAll('[data-overlay]').forEach(button => {
-  button.addEventListener('click', () => { const dialog = document.getElementById(button.dataset.overlay + '-overlay'); dialog.append(stopAudio); dialog.showModal(); });
+  const dialog = document.getElementById(button.dataset.overlay + '-overlay');
+  button.addEventListener('click', () => {
+    dialog.append(stopAudio);
+    dialog.showModal();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.append(stopAudio);
+    button.focus({ preventScroll: true });
+  });
 });
 document.querySelectorAll('.site-overlay').forEach(dialog => {
-  dialog.addEventListener('close', () => document.body.append(stopAudio));
   dialog.querySelector('.overlay-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
     const box = dialog.getBoundingClientRect();
