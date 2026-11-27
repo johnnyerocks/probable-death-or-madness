@@ -168,3 +168,21 @@ document.querySelectorAll('.site-overlay').forEach(dialog => {
     if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) dialog.close();
   });
 });
+
+const demosDialog = document.getElementById('demos-overlay');
+
+function openLinkedDemos() {
+  if (location.hash !== '#demos' || demosDialog.open) return;
+  const activeDialog = document.querySelector('dialog[open]');
+  if (activeDialog) activeDialog.close();
+  setTicketMenu(true);
+  document.querySelector('[data-overlay="demos"]').click();
+}
+
+demosDialog.addEventListener('close', () => {
+  if (location.hash === '#demos') {
+    history.replaceState(history.state, '', location.pathname + location.search);
+  }
+});
+window.addEventListener('hashchange', openLinkedDemos);
+openLinkedDemos();
