@@ -183,7 +183,6 @@ button { cursor: pointer; }
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1) invert(1) contrast(1.33);
 }
 .ticket-location {
   margin: 0;
