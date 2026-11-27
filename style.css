@@ -193,11 +193,10 @@ button { cursor: pointer; }
 }
 .ticket-details { display: grid; justify-items: center; gap: clamp(5px, 1vh, 10px); }
 .ticket-instruction {
-  text-align: center;
   padding: .38em .72em .34em;
   color: #eee;
   background: #242424;
-  font: 700 clamp(10px, 1.3vw, 14px)/1.3 var(--mono);
+  font: 700 clamp(10px, 1.3vw, 14px)/1 var(--mono);
   letter-spacing: .12em;
   text-transform: uppercase;
 }
